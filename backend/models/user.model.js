@@ -1,0 +1,23 @@
+import mongoose from "mongoose";
+
+const userSchema = new mongoose.Schema({
+  fullname: { type: String, require: true },
+
+  email: { type: String, require: true, unique: true },
+
+  password: { type: String },
+
+  mobile: { type: String, require: true },
+
+  role: {
+    type: String,
+    enum: ["user", "owner", "deliveryBoy"],
+    require: true
+  }
+
+}, {
+  timeseries: true
+})
+
+const User = mongoose.model("User")
+export default User
