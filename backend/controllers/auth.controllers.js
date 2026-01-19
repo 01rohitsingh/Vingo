@@ -40,7 +40,7 @@ export const signUp = async (req, res) => {
 
 
 // Signin
-export const signin = async (req, res) => {
+export const signIn = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
@@ -67,6 +67,18 @@ export const signin = async (req, res) => {
   }
   catch (error) {
     return res.status(500).json(`sign in error ${error}`)
+  }
+}
+
+// Signout
+
+export const signOut = async (req, res) => {
+  try {
+    res.clearCookis("token");
+    return res.status(200).json({ message: "Log out Successfully" })
+  }
+  catch (error) {
+    return res.status(500).json(`sign out error ${error}`)
   }
 }
 
