@@ -1,7 +1,7 @@
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs"
 import genToken from "../utils/token.js";
-import { use } from "react";
+
 
 // SignUp
 export const signUp = async (req, res) => {
