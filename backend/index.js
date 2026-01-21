@@ -13,6 +13,7 @@ app.use(cors({
   credentials:true
 }))
 
+
 // middleware
 app.use(express.json())
 app.use(cookieParser())
